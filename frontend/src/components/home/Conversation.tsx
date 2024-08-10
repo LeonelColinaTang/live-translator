@@ -1,13 +1,11 @@
 import useConversation from "../../store/useConversation";
-import { getRandomEmoji } from "../../utils/emojis";
 
 
-const Conversation = ({conversation}: {conversation: ConversationType}) => {
+const Conversation = ({conversation, emoji}: {conversation: ConversationType, emoji: string}) => {
     
     const { setSelectedConversation, selectedConversation } = useConversation();
     const isSelected = selectedConversation?.id === conversation.id;
     const isOnline = false;
-    const emoji = getRandomEmoji();
 
 
   return (
