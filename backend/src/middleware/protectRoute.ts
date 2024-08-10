@@ -25,17 +25,18 @@ const protectRoute = async (req: Request, res: Response, next: NextFunction) =>{
     try{
 
         // We get the token from the cookie
+        console.log("THIS IS THE COOKIES", req.cookies.jwt);
         const token = req.cookies.jwt;
 
         if(!token){
-            return res.status(401).json({error: "Unauthorized - No token provided"});
+            return res.status(401).json({error: "Unauthorized - No token provided. First"});
         }
 
         // Then we verify the token with our JWT_SECRET
         const decoded = jwt.verify(token, process.env.JWT_SECRET!) as DecodedToken;
 
         if(!decoded){
-            return res.status(401).json({error: "Unauthorized - Invalid Token"});
+            return res.status(401).json({error: "Unauthorized - Invalid Token. It's here"});
         }
 
         // If we are able to verify, then we find the user.
