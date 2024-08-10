@@ -15,20 +15,14 @@ const Message = ({ message }: { message: MessageType }) => {
   return (
     <div className={`chat ${chatClass}`}>
       {/* Avatar image */}
-      <div className="hidden md:block *:chat-image-avatar">
+      <div className="hidden md:block chat-image-avatar">
         <div className="w-6 md:w-10 rounded-full">
-          <img
-            alt="Tailwind CSS chat bubble component"
-            src={
-              img ||
-              `https://avatar.iran.liara.run/public/${selectedConversation?.id}`
-            }
-          />
+          <img alt="Tailwind CSS chat bubble component" src={img ||`https://avatar.iran.liara.run/public/${selectedConversation?.id}`}/>
         </div>
       </div>
-      <p className={`chat-bubble text-white ${bubbleBg}`}>{message.body}</p>
-
       {/* Message */}
+      <p className={`chat-bubble text-white ${bubbleBg} text-sm md:text-md`}>{message.body}</p>
+      {/* time footer */}
       <span className="chat-footer opacity-50 text-xs flex gap-1 items-center text-gray-300">
         {extractTime(message.createdAt)}
       </span>

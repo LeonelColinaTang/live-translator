@@ -23,7 +23,7 @@ const useGetUsersForSideBar = () => {
         //  If there's a problem, we throw an error to the catch block
 
         if (!res.ok) {
-          throw new Error(data.error);
+          throw new Error(data.error); 
         }
 
         setConversations(data);
