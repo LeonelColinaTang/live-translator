@@ -12,16 +12,13 @@ const Messages = () => {
       {loading && [...Array(3)].map((_, idx) => <MessageSkeleton key={idx} />)}
 
       {/* If it's not loading we show the messages */}
-      {!loading &&
-        messages.map((message:MessageType) => (
+      {!loading && messages.map((message:MessageType) => (
           <Message key={message.id} message={message} />
         ))}
 
       {/* If it's not loading and there are no messages, we show this text */}
       {!loading && messages.length === 0 && (
-        <p className="text-center text-white">
-          Send a message to start the conversation
-        </p>
+        <p className="text-center text-white">Send a message to start the conversation</p>
       )}
     </div>
   );

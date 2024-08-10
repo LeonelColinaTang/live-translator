@@ -1,15 +1,16 @@
+import { useSocketContext } from "../../context/SocketContext";
 import useConversation from "../../store/useConversation";
-import { getRandomEmoji } from "../../utils/emojis";
 
 
-const Conversation = ({conversation}: {conversation: ConversationType}) => {
+const Conversation = ({conversation, emoji}: {conversation: ConversationType, emoji: string}) => {
     
     const { setSelectedConversation, selectedConversation } = useConversation();
     const isSelected = selectedConversation?.id === conversation.id;
-    const isOnline = false;
-    const emoji = getRandomEmoji();
-
-
+    
+    const {onlineUsers} = useSocketContext();
+    
+    console.log(onlineUsers);
+    const isOnline = onlineUsers.includes(conversation.id);
   return (
     <>
       <div

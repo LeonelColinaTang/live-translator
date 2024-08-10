@@ -25,7 +25,6 @@ const protectRoute = async (req: Request, res: Response, next: NextFunction) =>{
     try{
 
         // We get the token from the cookie
-        console.log("THIS IS THE COOKIES", req.cookies.jwt);
         const token = req.cookies.jwt;
 
         if(!token){

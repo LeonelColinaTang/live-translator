@@ -10,7 +10,9 @@ const useGetMessages = () => {
   // This useEffect runs whenever the conversation changes, meaning, whenever the user clicks on a different one
   useEffect(() => {
     const getMessages = async () => {
+      // If no conversation has been selected, we have no need to get messages, so we return
       if (!selectedConversation) return;
+
       setLoading(true);
       setMessages([]);
       try {
