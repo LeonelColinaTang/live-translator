@@ -8,9 +8,9 @@ const Conversation = ({conversation, emoji}: {conversation: ConversationType, em
     const isSelected = selectedConversation?.id === conversation.id;
     
     const {onlineUsers} = useSocketContext();
-    
-    console.log(onlineUsers);
+    console.log("onlineUsers", onlineUsers);
     const isOnline = onlineUsers.includes(conversation.id);
+
   return (
     <>
       <div

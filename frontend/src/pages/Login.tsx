@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useLogin from "../hooks/useLogin";
+import toast from "react-hot-toast";
 
 const Login = () => {
 
@@ -14,6 +15,16 @@ const Login = () => {
 
   const handleLogin = (e: React.FormEvent) =>{
     e.preventDefault();
+
+    if(inputs.username.length < 6){
+      return toast.error("Username must be at least 6 characters long")
+    }
+
+    if (inputs.password.length < 6) {
+      return toast.error("Username must be at least 6 characters long");
+    }
+
+
     login(inputs.username, inputs.password)
   }
 

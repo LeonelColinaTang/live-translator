@@ -3,7 +3,6 @@ import { useState } from "react";
 import useGetUsersForSideBar from "../../hooks/useGetUsersForSideBar";
 import toast from "react-hot-toast";
 import useConversation from "../../store/useConversation";
-// import toast from "react-hot-toast";
 
 const SearchInput = () => {
 
@@ -15,6 +14,7 @@ const SearchInput = () => {
   const handleSearch = (e: React.FormEvent) =>{
     e.preventDefault();
     if(!search) return;
+
     if(search.length < 3){
       return toast.error("Search term must be at least 3 characters long");
     }
@@ -35,7 +35,7 @@ const SearchInput = () => {
     <form className="flex items-center gap-2">
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Search by Username"
         className="input input-bordered rounded-full"
         value={search}
         onChange={e => setSearch(e.target.value)}
