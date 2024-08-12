@@ -57,6 +57,7 @@ export const signup = async (req: Request, res: Response) => {
       generateToken(newUser.id, res);
 
       //   Here we send the response (cookie included)
+      // res.set("Access-Control-Allow-Origin", 'null');
       res.status(201).json({
         id: newUser.id,
         username: newUser.username,
@@ -87,7 +88,7 @@ export const login = async (req: Request, res: Response) => {
     }
 
     generateToken(user.id, res);
-
+    // res.set("Access-Control-Allow-Origin", "null");
     res.status(200).json({
       id: user.id,
       username: user.username,
@@ -102,6 +103,7 @@ export const login = async (req: Request, res: Response) => {
 export const logout = async (req: Request, res: Response) => {
   try {
     res.cookie("jwt", "", { maxAge: 0 });
+    // res.set("Access-Control-Allow-Origin", "null");
     res.status(200).json({ message: "Logged Out Successfully" });
   } catch (error: any) {
     console.log("Error in logout controler ", error.message);
@@ -116,7 +118,7 @@ export const getMe = async (req: Request, res: Response) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-
+    res.set("Access-Control-Allow-Origin", "null");
     res.status(200).json({
       id: user.id,
       username: user.username,

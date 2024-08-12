@@ -10,7 +10,7 @@ const Conversation = ({conversation, emoji}: {conversation: ConversationType, em
     const {onlineUsers} = useSocketContext();
     console.log("onlineUsers", onlineUsers);
     const isOnline = onlineUsers.includes(conversation.id);
-
+    console.log("isOnline", isOnline);
   return (
     <>
       <div
