@@ -1,6 +1,7 @@
 import { useAuthContext } from "../../context/AuthContext";
 import useConversation from "../../store/useConversation";
 import { extractTime } from "../../utils/extractTime";
+import { translate } from "../../hooks/useGemini";
 
 
 const Message = ({ message }: { message: MessageType }) => {
@@ -11,6 +12,8 @@ const Message = ({ message }: { message: MessageType }) => {
   const img = fromMe ? authUser?.profilePic : selectedConversation?.profilePic;
   const chatClass = fromMe ? "chat-end" : "chat-start";
   const bubbleBg = fromMe ? "bg-blue-500" : "";
+
+  const transMessage = translate(authUser?.prefLang, message.body).then(data => console.log(data));
 
   return (
     <div className={`chat ${chatClass}`}>
