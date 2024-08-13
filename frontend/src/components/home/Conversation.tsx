@@ -11,6 +11,7 @@ const Conversation = ({conversation, emoji}: {conversation: ConversationType, em
     console.log("onlineUsers", onlineUsers);
     const isOnline = onlineUsers.includes(conversation.id);
     console.log("isOnline", isOnline);
+    console.log("CONVERSATION", conversation);
   return (
     <>
       <div
