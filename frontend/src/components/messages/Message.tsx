@@ -13,7 +13,14 @@ const Message = ({ message }: { message: MessageType }) => {
   const chatClass = fromMe ? "chat-end" : "chat-start";
   const bubbleBg = fromMe ? "bg-blue-500" : "";
 
-  const transMessage = translate(authUser?.prefLang, message.body).then(data => console.log(data));
+  //const translatedArray: string[] = [];
+  //const transMessage = translate(authUser?.prefLang, message.body).then(data => translatedArray.push(data));
+
+  // if (selectedConversation?.prefLang !== authUser?.prefLang){
+    
+  //   let transMessage = translate(authUser?.prefLang, message.body).then(data =>  message.body = data);
+  
+  // }
 
   return (
     <div className={`chat ${chatClass}`}>

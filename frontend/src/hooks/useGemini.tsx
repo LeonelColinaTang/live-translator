@@ -17,4 +17,8 @@ export const translate = async function(lang: string | undefined, message: strin
 
     const result = await model.generateContent(prompt);
     return result.response.text();
+
+    // return (
+    //     <>{result.response.text()}</>
+    // )
 }
