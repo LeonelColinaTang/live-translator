@@ -57,7 +57,6 @@ export const sendMessage = async (req: Request, res: Response) =>{
     }
 
     //Socket io will go here
-    res.set("Access-Control-Allow-Origin", "null");
     res.status(201).json(newMessage);
     } catch (error: any) {
         console.log("Error in SendMessage controller ", {error: error.message,});
@@ -90,7 +89,6 @@ export const getMessages = async (req: Request, res: Response) =>{
       if (!conversation) {
         return res.status(200).json([]);
       }
-      // res.set("Access-Control-Allow-Origin", "null");
 
       res.status(200).json(conversation.messages);
     } catch (error: any) {
@@ -119,7 +117,6 @@ export const getUsersForSideBar = async (req: Request, res: Response) =>{
                 prefLang: true,
             }
         })
-      // res.set("Access-Control-Allow-Origin", "null");
 
         res.status(200).json(users);
 
