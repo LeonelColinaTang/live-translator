@@ -1,12 +1,13 @@
 import { useAuthContext } from "../../context/AuthContext";
 import useConversation from "../../store/useConversation";
 import { extractTime } from "../../utils/extractTime";
-import { translate } from "../../hooks/useGemini";
+// import { translate } from "../../hooks/useGemini";
+// import { useEffect, useState } from "react";
 
 
 const Message = ({ message }: { message: MessageType }) => {
   const { authUser } = useAuthContext();
-  const { selectedConversation, messages, setMessages } = useConversation();
+  const { selectedConversation } = useConversation();
 
   const fromMe = message.senderId === authUser?.id;
   const img = fromMe ? authUser?.profilePic : selectedConversation?.profilePic;
@@ -16,12 +17,6 @@ const Message = ({ message }: { message: MessageType }) => {
   //const translatedArray: string[] = [];
   
 
-  if (selectedConversation?.prefLang !== authUser?.prefLang){
-    
-    const transMessage = translate(authUser?.prefLang, message.body).then(data => message.body = data);
-    
-  
-  }
 
   return (
     <div className={`chat ${chatClass}`}>
