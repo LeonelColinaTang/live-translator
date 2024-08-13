@@ -1,10 +1,11 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 //import dotenv from 'dotenv';
 
-const genAI = new GoogleGenerativeAI(process.env.API_KEY!);
+const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 export const translate = async function(lang: string | undefined, message: string) {
+    //console.log(import.meta.env.VITE_API_KEY)
     let langFull;
 
     if (lang === 'SP') {

@@ -13,7 +13,7 @@ const Message = ({ message }: { message: MessageType }) => {
   const chatClass = fromMe ? "chat-end" : "chat-start";
   const bubbleBg = fromMe ? "bg-blue-500" : "";
 
-  console.log('key', process.env.API_KEY);
+  console.log('key', import.meta.env.VITE_API_KEY);
   const transMessage = translate(authUser?.prefLang, message.body).then(data => console.log(data));
 
   return (
