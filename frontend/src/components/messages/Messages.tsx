@@ -1,11 +1,12 @@
 // import { DUMMY_MESSAGES } from "../../dummy_data/dummy";
 import useGetMessages from "../../hooks/useGetMessages";
+import useListenMessages from "../../hooks/useListenMessages";
 import Message from "../messages/Message";
 import MessageSkeleton from "../skeleton/MessageSkeleton";
 
 const Messages = () => {
   const { loading, messages } = useGetMessages();
-
+  useListenMessages();
   return (
     <div className="px-4 flex-1 overflow-auto">
       {/* If it is loading, we show a skeleton */}

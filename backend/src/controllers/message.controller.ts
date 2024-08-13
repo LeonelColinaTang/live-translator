@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import prisma from "../db/prisma.js";
+import { getReceiverSocketId, io } from "../socket/socket.js";
 
 
 export const sendMessage = async (req: Request, res: Response) =>{
@@ -56,7 +57,15 @@ export const sendMessage = async (req: Request, res: Response) =>{
         });
     }
 
-    //Socket io will go here
+    //Socket io ////
+    // We check to see if we have that id on the online users
+    const receiverSocketId = getReceiverSocketId(receiverId)
+    // if we do, we send the message, so the useEffect can run and update it
+    if(receiverSocketId){
+      io.to(receiverSocketId).emit("newMessage", newMessage)
+    }
+
+
     res.status(201).json(newMessage);
     } catch (error: any) {
         console.log("Error in SendMessage controller ", {error: error.message,});
