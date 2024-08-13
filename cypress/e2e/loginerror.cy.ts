@@ -1,21 +1,28 @@
-// describe("Login page - Non-Existent-User", ()=>{
-//   beforeEach(()=>{
-//       cy.visit("http://localhost:5173/login")
+describe("Login page - Non-Existent User", () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:5173/login"); // Adjust the URL if needed
+  });
 
-//       cy.intercept('POST', '/api/auth/login', {
-//           statusCode: 402,
-//           body:{
-//               error:"User does not exist"
-//           }
-//       }).as('loginRequest')
-//   })
-//   it('displays an error for non-existant user',()=>{
-      
-//       cy.getByData("cypress-inputUserName").type('NonExistentUser')
-//       cy.getByData("cypress-inputPassword").type('wrongpassword')
-//       cy.getByData('cypress-loginbtn').click()
+  it('Login with invalid credentials', () => {
+    cy.request({
+      method: 'POST',
+      url: 'api/auth/login',
+      body: {
+        username: 'nonexistentuser',
+        password: 'wrongpassword'
+      },
+      failOnStatusCode: false
+    }).then((response) => {
+      expect(response.status).to.eq(400);
+      expect(response.body.error).to.eq('Invalid credentials');
+    });
+  });
 
-//       cy.wait('@loginRequest');
-//       cy.contains("User does not exist").should("be.visible");
-//   })
-// })
+  // it('Displays an error for non-existent user on UI', () => {
+  //   cy.getByData("cypress-inputUserName").type('invalidUsername'); 
+  //   cy.getByData("cypress-inputPassword").type('invalidPassword'); 
+  //   cy.getByData("cypress-loginbtn").click(); 
+
+  //   cy.contains("Email or password invalid").should("be.visible");
+  // });
+});
