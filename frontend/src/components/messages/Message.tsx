@@ -5,9 +5,9 @@ import { translate } from "../../hooks/useGemini";
 import { useEffect, useState } from "react";
 
 
-const Message = ({ message, idx }: { message: MessageType, idx:number }) => {
+const Message = ({ message }: { message: MessageType}) => {
   const { authUser } = useAuthContext();
-  const { selectedConversation, messages, setMessages } = useConversation();
+  const { selectedConversation} = useConversation();
   const [sms, setSms] = useState(message)
 
   const fromMe = message.senderId === authUser?.id;
