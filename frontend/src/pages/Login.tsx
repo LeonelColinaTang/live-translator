@@ -56,7 +56,7 @@ const Login = () => {
             </label>
             <input
               data-test='cypress-inputPassword'
-              type="password"
+              type="text"
               placeholder="Enter password"
               className="w-full input input-bordered h-10"
               value={inputs.password}
@@ -73,7 +73,10 @@ const Login = () => {
             Don't have an account?
           </Link>
           <div>
-            <button className="btn btn-block btn-sm mt-2  text-orange-500 hover:bg-orange-500 hover:text-white" data-test="cypress-loginbtn">
+            <button
+              className="btn btn-block btn-sm mt-2  text-orange-500 hover:bg-orange-500 hover:text-white"
+              data-test="cypress-loginbtn"
+            >
               {loading ? "Signing in..." : "Log In"}
             </button>
           </div>
