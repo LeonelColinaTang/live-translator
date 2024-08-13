@@ -4,31 +4,26 @@ import useLogin from "../hooks/useLogin";
 import toast from "react-hot-toast";
 
 const Login = () => {
-
-
   const [inputs, setInputs] = useState({
-    username: '',
-    password: ''
+    username: "",
+    password: "",
   });
 
-  const {loading, login} = useLogin();
+  const { loading, login } = useLogin();
 
-  const handleLogin = (e: React.FormEvent) =>{
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if(inputs.username.length < 6){
-      return toast.error("Username must be at least 6 characters long")
+    if (inputs.username.length < 6) {
+      return toast.error("Username must be at least 6 characters long");
     }
 
     if (inputs.password.length < 6) {
       return toast.error("Username must be at least 6 characters long");
     }
 
-
-    login(inputs.username, inputs.password)
-  }
-
-
+    login(inputs.username, inputs.password);
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
@@ -44,6 +39,7 @@ const Login = () => {
               <span className="text-base label-text">Username</span>
             </label>
             <input
+              data-test="cypress-inputUserName"
               type="text"
               placeholder="Enter username"
               className="w-full input input-bordered h-10"
@@ -59,6 +55,7 @@ const Login = () => {
               <span className="text-base label-text">Password</span>
             </label>
             <input
+              data-test='cypress-inputPassword'
               type="password"
               placeholder="Enter password"
               className="w-full input input-bordered h-10"
@@ -76,7 +73,7 @@ const Login = () => {
             Don't have an account?
           </Link>
           <div>
-            <button className="btn btn-block btn-sm mt-2  text-orange-500 hover:bg-orange-500 hover:text-white">
+            <button className="btn btn-block btn-sm mt-2  text-orange-500 hover:bg-orange-500 hover:text-white" data-test="cypress-loginbtn">
               {loading ? "Signing in..." : "Log In"}
             </button>
           </div>
