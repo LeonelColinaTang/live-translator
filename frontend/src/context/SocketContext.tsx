@@ -16,11 +16,10 @@ export const useSocketContext = (): ISocketContext =>{
     if(context === undefined){
         throw new Error("useSocketContext must be used within a SocketContextProvider");
     }
-
     return context;
 }
 
-const socketURL = import.meta.env.NODE_ENV === "development" ? "http://localhost:5000" : "/"
+const socketURL = import.meta.env.MODE === "development" ? "http://localhost:5000" : "/"
 
 const SocketContextProvider = ({children}:{children: ReactNode}) =>{
     const socketRef = useRef<Socket | null>(null);

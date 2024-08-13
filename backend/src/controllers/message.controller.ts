@@ -57,7 +57,6 @@ export const sendMessage = async (req: Request, res: Response) =>{
     }
 
     //Socket io will go here
-
     res.status(201).json(newMessage);
     } catch (error: any) {
         console.log("Error in SendMessage controller ", {error: error.message,});

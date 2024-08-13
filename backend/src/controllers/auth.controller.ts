@@ -87,7 +87,6 @@ export const login = async (req: Request, res: Response) => {
     }
 
     generateToken(user.id, res);
-
     res.status(200).json({
       id: user.id,
       username: user.username,
@@ -116,7 +115,6 @@ export const getMe = async (req: Request, res: Response) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-
     res.status(200).json({
       id: user.id,
       username: user.username,

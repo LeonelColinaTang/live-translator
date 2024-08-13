@@ -7,6 +7,7 @@ import { app, server } from './socket/socket.js';
 import dotenv from 'dotenv';
 dotenv.config();
 // const app = express();
+const PORT = process.env.PORT || 5000;
 
 
 app.use(express.json()); //This is to parse the json responses
@@ -16,7 +17,7 @@ app.use(cookieParser()); //for parsing application/json
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes)
 
-server.listen(5000, () =>{
+server.listen(PORT, () =>{
     console.log("Server is running on port 5000");
 })
 
