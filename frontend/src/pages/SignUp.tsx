@@ -36,6 +36,7 @@ const SignUp = () => {
               <span className="text-base label-text">Username</span>
             </label>
             <input
+              data-test="cypress-userNameInput"
               type="text"
               placeholder="Your username"
               value={inputs.username}
@@ -51,6 +52,7 @@ const SignUp = () => {
               <span className="text-base label-text ">Email</span>
             </label>
             <input
+              data-test="cypress-userEmailInput"
               type="email"
               placeholder="your_email@example.com"
               value={inputs.email}
@@ -64,6 +66,7 @@ const SignUp = () => {
               <span className="text-base label-text ">Password</span>
             </label>
             <input
+              data-test="cypress-userPasswordInput"
               type="password"
               placeholder="Enter your password"
               value={inputs.password}
@@ -79,6 +82,7 @@ const SignUp = () => {
               <span className="text-base label-text ">Confirm Password</span>
             </label>
             <input
+              data-test="cypress-passwrodConfirm"
               type="password"
               placeholder="Confirm your password"
               value={inputs.confirmPassword}
@@ -102,6 +106,7 @@ const SignUp = () => {
 
           <div>
             <button
+              data-test="cypress-signupBtn"
               className="btn btn-block btn-sm mt-2 border border-slate-700 text-orange-500 hover:bg-orange-500 hover:text-white"
               disabled={loading}
             >
