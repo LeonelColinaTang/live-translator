@@ -3,28 +3,9 @@ import useGetMessages from "../../hooks/useGetMessages";
 import useListenMessages from "../../hooks/useListenMessages";
 import Message from "../messages/Message";
 import MessageSkeleton from "../skeleton/MessageSkeleton";
-import { translate } from "../../hooks/useGemini";
-import { useAuthContext } from "../../context/AuthContext";
-import useConversation from "../../store/useConversation";
-import { useEffect } from "react";
 
 const Messages = () => {
-  const {authUser} = useAuthContext();
   const { loading, messages } = useGetMessages();
-  const {selectedConversation, setMessages} = useConversation();
-
-
-
-  useEffect(() =>{
-    messages.map((message:MessageType) => {
-      if (authUser?.prefLang !== selectedConversation?.prefLang) {
-        translate(authUser?.prefLang, message.body).then(
-          (data) => (message.body = data)
-        );
-      }
-    })
-    setMessages(messages)
-  },[]);
 
   useListenMessages();
 
