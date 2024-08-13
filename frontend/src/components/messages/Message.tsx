@@ -6,7 +6,7 @@ import { translate } from "../../hooks/useGemini";
 
 const Message = ({ message }: { message: MessageType }) => {
   const { authUser } = useAuthContext();
-  const { selectedConversation } = useConversation();
+  const { selectedConversation, messages, setMessages } = useConversation();
 
   const fromMe = message.senderId === authUser?.id;
   const img = fromMe ? authUser?.profilePic : selectedConversation?.profilePic;
@@ -14,13 +14,14 @@ const Message = ({ message }: { message: MessageType }) => {
   const bubbleBg = fromMe ? "bg-blue-500" : "";
 
   //const translatedArray: string[] = [];
-  //const transMessage = translate(authUser?.prefLang, message.body).then(data => translatedArray.push(data));
-
-  // if (selectedConversation?.prefLang !== authUser?.prefLang){
-    
-  //   let transMessage = translate(authUser?.prefLang, message.body).then(data =>  message.body = data);
   
-  // }
+
+  if (selectedConversation?.prefLang !== authUser?.prefLang){
+    
+    const transMessage = translate(authUser?.prefLang, message.body).then(data => message.body = data);
+    
+  
+  }
 
   return (
     <div className={`chat ${chatClass}`}>
