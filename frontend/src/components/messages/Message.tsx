@@ -27,7 +27,7 @@ const Message = ({ message }: { message: MessageType}) => {
     }
 
     trans()
-  },[])
+  },[sms])
   
 
 
