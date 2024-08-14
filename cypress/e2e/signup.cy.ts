@@ -16,12 +16,16 @@ describe('test signup page', () => {
     cy.getByData('cypress-userNameInput').should('be.visible')
     cy.getByData('cypress-userEmailInput').should('be.visible')
     cy.getByData('cypress-userPasswordInput').should('be.visible')
+    cy.getByData("cypress-passwrodConfirm").should('be.visible');
+
   });
 
   it('should allow user to input text into form fields', ()=>{
     cy.getByData('cypress-userNameInput').type('johnDoe').should('have.value', 'johnDoe')
     cy.getByData('cypress-userEmailInput').type('john.doe@example.com').should('have.value', 'john.doe@example.com')
     cy.getByData('cypress-userPasswordInput').type('password@1234').should('have.value','password@1234')
+    cy.getByData("cypress-passwrodConfirm").type('password@1234').should('have.value','password@1234');
+    
   })
 
   it('render and interact with language checkbox', ()=>{
@@ -45,8 +49,8 @@ describe('test signup page', () => {
   //   cy.getByData('cypress-signupBtn').should('be.disabled')
   // })
   it('checks the form submission process', ()=>{
-    cy.getByData('cypress-userNameInput').type('mark212345')
-    cy.getByData('cypress-userEmailInput').type('omar@example.com')
+    cy.getByData('cypress-userNameInput').type('newuser1123')
+    cy.getByData('cypress-userEmailInput').type('newuser1123@example.com')
     cy.getByData('cypress-userPasswordInput').type('password@1234')
     cy.getByData('cypress-passwrodConfirm').type('password@1234')
 
