@@ -33,7 +33,7 @@ const SignUp = () => {
           {/* USERNAME INPUT */}
           <div>
             <label className="label p-2">
-              <span className="text-base label-text">Username</span>
+              <span className="text-base label-text text-white">Username</span>
             </label>
             <input
               data-test="cypress-userNameInput"
@@ -49,7 +49,7 @@ const SignUp = () => {
           {/* EMAIL INPUT */}
           <div>
             <label className="label p-2">
-              <span className="text-base label-text ">Email</span>
+              <span className="text-base label-text text-white">Email</span>
             </label>
             <input
               data-test="cypress-userEmailInput"
@@ -63,7 +63,7 @@ const SignUp = () => {
           {/* PASSWORD INPUT */}
           <div>
             <label className="label p-2">
-              <span className="text-base label-text ">Password</span>
+              <span className="text-base label-text text-white">Password</span>
             </label>
             <input
               data-test="cypress-userPasswordInput"
@@ -79,7 +79,9 @@ const SignUp = () => {
           {/* CONFIRM PASSWORD INPUT */}
           <div>
             <label className="label p-2">
-              <span className="text-base label-text ">Confirm Password</span>
+              <span className="text-base label-text text-white">
+                Confirm Password
+              </span>
             </label>
             <input
               data-test="cypress-passwrodConfirm"
