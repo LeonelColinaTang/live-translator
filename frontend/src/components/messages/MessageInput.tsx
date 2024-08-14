@@ -19,6 +19,7 @@ const MessageInput = () => {
       <div className="w-full relative">
         <input
           type="text"
+          data-test='cy-sendMessage'
           className="border text-sm rounded-lg block w-full p-2.5 bg-gray-700 border-gray-600 text-white"
           placeholder="Send a Message"
           value={message}
@@ -26,6 +27,7 @@ const MessageInput = () => {
         />
         <button
           type="submit"
+          data-test='cy-submit'
           className="absolute inset-y-0 end-0 flex items-center pe-3 text-gray-300"
         >
           {loading ? (

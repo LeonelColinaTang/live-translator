@@ -10,7 +10,7 @@ const Messages = () => {
   useListenMessages();
 
   return (
-    <div className="px-4 flex-1 overflow-auto">
+    <div className="px-4 flex-1 overflow-auto" data-test="cy-getMessages">
       {/* If it is loading, we show a skeleton */}
       {loading && [...Array(3)].map((_, idx) => <MessageSkeleton key={idx} />)}
 

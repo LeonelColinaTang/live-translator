@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -36,6 +36,7 @@
 //   }
 // }
 
+/// <reference types="cypress" />
 
 declare namespace Cypress {
     interface Chainable {
