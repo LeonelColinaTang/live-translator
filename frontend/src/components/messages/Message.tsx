@@ -34,11 +34,11 @@ const Message = ({ message }: { message: MessageType}) => {
   return (
     <div className={`chat ${chatClass}`}>
       {/* Avatar image */}
-      <div className="hidden md:block chat-image-avatar">
+      {/* <div className="hidden md:block chat-image-avatar">
         <div className="w-6 md:w-10 rounded-full">
           <img alt="Tailwind CSS chat bubble component" src={img ||`https://avatar.iran.liara.run/public/${selectedConversation?.id}`}/>
         </div>
-      </div>
+      </div> */}
       {/* Message */}
       <p className={`chat-bubble text-white ${bubbleBg} text-sm md:text-md`}>{sms.body}</p>
       {/* time footer */}
