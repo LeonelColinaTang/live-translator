@@ -5,7 +5,8 @@
 
 
 body{
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("/bg.jpg");
+    /* background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("/bg.jpg"); */
+    background: linear-gradient(to right, #ec7e2f 0%, #008cba 100%);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

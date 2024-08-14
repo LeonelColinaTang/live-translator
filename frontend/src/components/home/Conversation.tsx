@@ -14,8 +14,8 @@ const Conversation = ({conversation, emoji}: {conversation: ConversationType, em
   return (
     <>
       <div
-        className={`flex gap-2 items-center hover:bg-sky-500 rounded p-2 py-1 cursor-pointer ${
-          isSelected ? "bg-sky-500" : ""
+        className={`flex gap-2 items-center hover:bg-azul rounded p-2 py-1 cursor-pointer ${
+          isSelected ? "bg-azul" : ""
         }`}
         onClick={() => setSelectedConversation(conversation)}
       >

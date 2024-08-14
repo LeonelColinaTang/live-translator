@@ -25,8 +25,8 @@ const SignUp = () => {
   return (
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
       <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
-        <h1 className="text-3xl font-semibold text-center text-gray-300">
-          Sign Up <span className="text-orange-500"> Live Translator</span>
+        <h1 className="text-3xl font-semibold text-center text-gray-100">
+          Sign Up <span className="text-orange-400"> Live Translator</span>
         </h1>
 
         <form onSubmit={handleSubmit}>
@@ -99,7 +99,7 @@ const SignUp = () => {
           />
           <Link
             to="/login"
-            className="text-sm hover:underline hover:text-orange-600 mt-2 inline-block text-white"
+            className="text-sm hover:underline hover:text-orange-400 mt-2 inline-block text-white"
           >
             Already have an account? Log in
           </Link>
@@ -107,7 +107,7 @@ const SignUp = () => {
           <div>
             <button
               data-test="cypress-signupBtn"
-              className="btn btn-block btn-sm mt-2 border border-slate-700 text-orange-500 hover:bg-orange-500 hover:text-white"
+              className="btn btn-block btn-sm mt-2 border border-slate-700 text-orange-500 hover:bg-orange-400 hover:text-white"
               disabled={loading}
             >
               {loading ? "Loading..." : "Sign Up"}

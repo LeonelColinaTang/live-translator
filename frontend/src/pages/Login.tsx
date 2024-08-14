@@ -27,16 +27,16 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
-      <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
-        <h1 className="text-3xl font-semibold text-center text-gray-300">
+      <div className="w-full p-6 rounded-lg shadow-md bg-modal bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
+        <h1 className="text-3xl font-semibold text-center text-gray-100">
           Live
-          <span className="text-orange-500"> Translator</span>
+          <span className="text-orange-400"> Translator</span>
         </h1>
 
         <form onSubmit={handleLogin}>
           <div>
             <label className="label p-2">
-              <span className="text-base label-text">Username</span>
+              <span className="text-base label-text text-white">Username</span>
             </label>
             <input
               data-test="cypress-inputUserName"
@@ -52,7 +52,7 @@ const Login = () => {
 
           <div>
             <label className="label p-2">
-              <span className="text-base label-text">Password</span>
+              <span className="text-base label-text text-white">Password</span>
             </label>
             <input
               data-test='cypress-inputPassword'
@@ -68,13 +68,13 @@ const Login = () => {
 
           <Link
             to="/signup"
-            className="text-sm hover:underline hover:text-orange-600 mt-2 inline-block text-white"
+            className="text-sm hover:underline hover:text-orange-300 mt-2 inline-block text-white"
           >
             Don't have an account?
           </Link>
           <div>
             <button
-              className="btn btn-block btn-sm mt-2  text-orange-500 hover:bg-orange-500 hover:text-white"
+              className="btn btn-block btn-sm mt-2  text-orange-500 hover:bg-orange-400 hover:text-white"
               data-test="cypress-loginbtn"
             >
               {loading ? "Signing in..." : "Log In"}
